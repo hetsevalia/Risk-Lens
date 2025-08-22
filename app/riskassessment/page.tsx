@@ -61,37 +61,37 @@ export default function Page() {
     Gender: "",
     Education_Level: "",
     Marital_Status: "",
-    Income: 0,
-    Credit_Score: 0,
-    Loan_Amount: 0,
+    Income: undefined,
+    Credit_Score: undefined,
+    Loan_Amount: undefined,
     Loan_Purpose: "",
     Employment_Status: "",
-    Years_at_Current_Job: 0,
+    Years_at_Current_Job: undefined,
     Payment_History: "",
-    Debt_to_Income_Ratio: 0,
-    Assets_Value: 0,
-    Number_of_Dependents: 0,
-    Previous_Defaults: 0,
-    Marital_Status_Change: 0,
+    Debt_to_Income_Ratio: undefined,
+    Assets_Value: undefined,
+    Number_of_Dependents: undefined,
+    Previous_Defaults: undefined,
+    Marital_Status_Change: undefined,
   })
 
   // Health Form State
   const [healthForm, setHealthForm] = useState<Partial<HealthFormData>>({
-    male: 0,
+    male: undefined,
     age: 30,
     education: 1,
-    currentSmoker: 0,
-    cigsPerDay: 0,
-    BPMeds: 0,
-    prevalentStroke: 0,
-    prevalentHyp: 0,
-    diabetes: 0,
-    totChol: 0,
-    sysBP: 0,
-    diaBP: 0,
-    BMI: 0,
-    heartRate: 0,
-    glucose: 0,
+    currentSmoker: undefined,
+    cigsPerDay: undefined,
+    BPMeds: undefined,
+    prevalentStroke: undefined,
+    prevalentHyp: undefined,
+    diabetes: undefined,
+    totChol: undefined,
+    sysBP: undefined,
+    diaBP: undefined,
+    BMI: undefined,
+    heartRate: undefined,
+    glucose: undefined,
   })
 
   // Results State
@@ -104,7 +104,7 @@ export default function Page() {
 
   // Auto-calculate Debt-to-Income Ratio
   useEffect(() => {
-    if (financeForm.Loan_Amount && financeForm.Income) {
+    if (financeForm.Loan_Amount !== undefined && financeForm.Income !== undefined && financeForm.Income !== 0) {
       setFinanceForm((prev) => ({
         ...prev,
         Debt_to_Income_Ratio: prev.Loan_Amount! / prev.Income!,
@@ -216,8 +216,8 @@ export default function Page() {
                   <Label>Age *</Label>
                   <Input
                     type="number"
-                    value={financeForm.Age || ""}
-                    onChange={(e) => updateFinanceForm("Age", Number.parseInt(e.target.value))}
+                    value={financeForm.Age !== undefined ? financeForm.Age : ""}
+                    onChange={(e) => updateFinanceForm("Age", e.target.value === "" ? undefined : Number.parseInt(e.target.value))}
                     required
                   />
                 </div>
@@ -280,8 +280,8 @@ export default function Page() {
                     <Label>Income (USD) *</Label>
                     <Input
                       type="number"
-                      value={financeForm.Income || ""}
-                      onChange={(e) => updateFinanceForm("Income", Number.parseFloat(e.target.value))}
+                      value={financeForm.Income !== undefined ? financeForm.Income : ""}
+                      onChange={(e) => updateFinanceForm("Income", e.target.value === "" ? undefined : Number.parseFloat(e.target.value))}
                       required
                     />
                   </div>
@@ -289,8 +289,8 @@ export default function Page() {
                     <Label>Loan Amount (USD) *</Label>
                     <Input
                       type="number"
-                      value={financeForm.Loan_Amount || ""}
-                      onChange={(e) => updateFinanceForm("Loan_Amount", Number.parseFloat(e.target.value))}
+                      value={financeForm.Loan_Amount !== undefined ? financeForm.Loan_Amount : ""}
+                      onChange={(e) => updateFinanceForm("Loan_Amount", e.target.value === "" ? undefined : Number.parseFloat(e.target.value))}
                       required
                     />
                   </div>
@@ -301,7 +301,7 @@ export default function Page() {
                   <Label>Debt-to-Income Ratio (Auto-calculated)</Label>
                   <Input
                     type="number"
-                    value={financeForm.Debt_to_Income_Ratio?.toFixed(4) || "0"}
+                    value={financeForm.Debt_to_Income_Ratio !== undefined ? financeForm.Debt_to_Income_Ratio.toFixed(4) : "0"}
                     readOnly
                     className="bg-gray-100 dark:bg-gray-700"
                   />
@@ -312,8 +312,8 @@ export default function Page() {
                   <Label>Credit Score *</Label>
                   <Input
                     type="number"
-                    value={financeForm.Credit_Score || ""}
-                    onChange={(e) => updateFinanceForm("Credit_Score", Number.parseFloat(e.target.value))}
+                    value={financeForm.Credit_Score !== undefined ? financeForm.Credit_Score : ""}
+                    onChange={(e) => updateFinanceForm("Credit_Score", e.target.value === "" ? undefined : Number.parseFloat(e.target.value))}
                     required
                   />
                 </div>
@@ -360,8 +360,8 @@ export default function Page() {
                   <Label>Years at Current Job *</Label>
                   <Input
                     type="number"
-                    value={financeForm.Years_at_Current_Job || ""}
-                    onChange={(e) => updateFinanceForm("Years_at_Current_Job", Number.parseInt(e.target.value))}
+                    value={financeForm.Years_at_Current_Job !== undefined ? financeForm.Years_at_Current_Job : ""}
+                    onChange={(e) => updateFinanceForm("Years_at_Current_Job", e.target.value === "" ? undefined : Number.parseInt(e.target.value))}
                     required
                   />
                 </div>
@@ -390,8 +390,8 @@ export default function Page() {
                   <Label>Assets Value (USD) *</Label>
                   <Input
                     type="number"
-                    value={financeForm.Assets_Value || ""}
-                    onChange={(e) => updateFinanceForm("Assets_Value", Number.parseFloat(e.target.value))}
+                    value={financeForm.Assets_Value !== undefined ? financeForm.Assets_Value : ""}
+                    onChange={(e) => updateFinanceForm("Assets_Value", e.target.value === "" ? undefined : Number.parseFloat(e.target.value))}
                     required
                   />
                 </div>
@@ -401,8 +401,8 @@ export default function Page() {
                   <Label>Number of Dependents *</Label>
                   <Input
                     type="number"
-                    value={financeForm.Number_of_Dependents || ""}
-                    onChange={(e) => updateFinanceForm("Number_of_Dependents", Number.parseFloat(e.target.value))}
+                    value={financeForm.Number_of_Dependents !== undefined ? financeForm.Number_of_Dependents : ""}
+                    onChange={(e) => updateFinanceForm("Number_of_Dependents", e.target.value === "" ? undefined : Number.parseFloat(e.target.value))}
                     required
                   />
                 </div>
@@ -412,8 +412,8 @@ export default function Page() {
                   <Label>Previous Defaults *</Label>
                   <Input
                     type="number"
-                    value={financeForm.Previous_Defaults || ""}
-                    onChange={(e) => updateFinanceForm("Previous_Defaults", Number.parseInt(e.target.value))}
+                    value={financeForm.Previous_Defaults !== undefined ? financeForm.Previous_Defaults : ""}
+                    onChange={(e) => updateFinanceForm("Previous_Defaults", e.target.value === "" ? undefined : Number.parseInt(e.target.value))}
                     required
                   />
                 </div>
@@ -435,7 +435,9 @@ export default function Page() {
                   className="mt-6 p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg"
                 >
                   <h3 className="font-semibold text-lg mb-2">Finance Risk Rating</h3>
-                  <pre className="text-sm overflow-auto">{JSON.stringify(financeResult, null, 2)}</pre>
+                  <div className="text-sm">
+                  <p><strong>Risk Rating:</strong> {financeResult["Risk Rating"]}</p>
+                  </div>
                 </motion.div>
               )}
             </CardContent>
@@ -454,7 +456,7 @@ export default function Page() {
                 <div className="space-y-2">
                   <Label>Gender *</Label>
                   <Select
-                    value={healthForm.male?.toString()}
+                    value={healthForm.male !== undefined ? healthForm.male.toString() : ""}
                     onValueChange={(value) => updateHealthForm("male", Number.parseInt(value))}
                   >
                     <SelectTrigger>
@@ -472,8 +474,8 @@ export default function Page() {
                   <Label>Age *</Label>
                   <Input
                     type="number"
-                    value={healthForm.age || ""}
-                    onChange={(e) => updateHealthForm("age", Number.parseInt(e.target.value))}
+                    value={healthForm.age !== undefined ? healthForm.age : ""}
+                    onChange={(e) => updateHealthForm("age", e.target.value === "" ? undefined : Number.parseInt(e.target.value))}
                     required
                   />
                 </div>
@@ -482,7 +484,7 @@ export default function Page() {
                 <div className="space-y-2">
                   <Label>Education *</Label>
                   <Select
-                    value={healthForm.education?.toString()}
+                    value={healthForm.education !== undefined ? healthForm.education.toString() : ""}
                     onValueChange={(value) => updateHealthForm("education", Number.parseInt(value))}
                   >
                     <SelectTrigger>
@@ -501,7 +503,7 @@ export default function Page() {
                 <div className="space-y-2">
                   <Label>Current Smoker *</Label>
                   <Select
-                    value={healthForm.currentSmoker?.toString()}
+                    value={healthForm.currentSmoker !== undefined ? healthForm.currentSmoker.toString() : ""}
                     onValueChange={(value) => updateHealthForm("currentSmoker", Number.parseInt(value))}
                   >
                     <SelectTrigger>
@@ -520,8 +522,8 @@ export default function Page() {
                   <Input
                     type="number"
                     step="0.1"
-                    value={healthForm.cigsPerDay || ""}
-                    onChange={(e) => updateHealthForm("cigsPerDay", Number.parseFloat(e.target.value))}
+                    value={healthForm.cigsPerDay !== undefined ? healthForm.cigsPerDay : ""}
+                    onChange={(e) => updateHealthForm("cigsPerDay", e.target.value === "" ? undefined : Number.parseFloat(e.target.value))}
                     required
                   />
                 </div>
@@ -530,7 +532,7 @@ export default function Page() {
                 <div className="space-y-2">
                   <Label>Blood Pressure Medicines *</Label>
                   <Select
-                    value={healthForm.BPMeds?.toString()}
+                    value={healthForm.BPMeds !== undefined ? healthForm.BPMeds.toString() : ""}
                     onValueChange={(value) => updateHealthForm("BPMeds", Number.parseInt(value))}
                   >
                     <SelectTrigger>
@@ -547,7 +549,7 @@ export default function Page() {
                 <div className="space-y-2">
                   <Label>Prevalent Stroke *</Label>
                   <Select
-                    value={healthForm.prevalentStroke?.toString()}
+                    value={healthForm.prevalentStroke !== undefined ? healthForm.prevalentStroke.toString() : ""}
                     onValueChange={(value) => updateHealthForm("prevalentStroke", Number.parseInt(value))}
                   >
                     <SelectTrigger>
@@ -564,7 +566,7 @@ export default function Page() {
                 <div className="space-y-2">
                   <Label>Prevalent Hypertension *</Label>
                   <Select
-                    value={healthForm.prevalentHyp?.toString()}
+                    value={healthForm.prevalentHyp !== undefined ? healthForm.prevalentHyp.toString() : ""}
                     onValueChange={(value) => updateHealthForm("prevalentHyp", Number.parseInt(value))}
                   >
                     <SelectTrigger>
@@ -581,7 +583,7 @@ export default function Page() {
                 <div className="space-y-2">
                   <Label>Diabetes *</Label>
                   <Select
-                    value={healthForm.diabetes?.toString()}
+                    value={healthForm.diabetes !== undefined ? healthForm.diabetes.toString() : ""}
                     onValueChange={(value) => updateHealthForm("diabetes", Number.parseInt(value))}
                   >
                     <SelectTrigger>
@@ -600,8 +602,8 @@ export default function Page() {
                   <Input
                     type="number"
                     step="0.1"
-                    value={healthForm.totChol || ""}
-                    onChange={(e) => updateHealthForm("totChol", Number.parseFloat(e.target.value))}
+                    value={healthForm.totChol !== undefined ? healthForm.totChol : ""}
+                    onChange={(e) => updateHealthForm("totChol", e.target.value === "" ? undefined : Number.parseFloat(e.target.value))}
                     required
                   />
                 </div>
@@ -612,8 +614,8 @@ export default function Page() {
                   <Input
                     type="number"
                     step="0.1"
-                    value={healthForm.sysBP || ""}
-                    onChange={(e) => updateHealthForm("sysBP", Number.parseFloat(e.target.value))}
+                    value={healthForm.sysBP !== undefined ? healthForm.sysBP : ""}
+                    onChange={(e) => updateHealthForm("sysBP", e.target.value === "" ? undefined : Number.parseFloat(e.target.value))}
                     required
                   />
                 </div>
@@ -624,8 +626,8 @@ export default function Page() {
                   <Input
                     type="number"
                     step="0.1"
-                    value={healthForm.diaBP || ""}
-                    onChange={(e) => updateHealthForm("diaBP", Number.parseFloat(e.target.value))}
+                    value={healthForm.diaBP !== undefined ? healthForm.diaBP : ""}
+                    onChange={(e) => updateHealthForm("diaBP", e.target.value === "" ? undefined : Number.parseFloat(e.target.value))}
                     required
                   />
                 </div>
@@ -636,8 +638,8 @@ export default function Page() {
                   <Input
                     type="number"
                     step="0.1"
-                    value={healthForm.BMI || ""}
-                    onChange={(e) => updateHealthForm("BMI", Number.parseFloat(e.target.value))}
+                    value={healthForm.BMI !== undefined ? healthForm.BMI : ""}
+                    onChange={(e) => updateHealthForm("BMI", e.target.value === "" ? undefined : Number.parseFloat(e.target.value))}
                     required
                   />
                 </div>
@@ -648,8 +650,8 @@ export default function Page() {
                   <Input
                     type="number"
                     step="0.1"
-                    value={healthForm.heartRate || ""}
-                    onChange={(e) => updateHealthForm("heartRate", Number.parseFloat(e.target.value))}
+                    value={healthForm.heartRate !== undefined ? healthForm.heartRate : ""}
+                    onChange={(e) => updateHealthForm("heartRate", e.target.value === "" ? undefined : Number.parseFloat(e.target.value))}
                     required
                   />
                 </div>
@@ -660,8 +662,8 @@ export default function Page() {
                   <Input
                     type="number"
                     step="0.1"
-                    value={healthForm.glucose || ""}
-                    onChange={(e) => updateHealthForm("glucose", Number.parseFloat(e.target.value))}
+                    value={healthForm.glucose !== undefined ? healthForm.glucose : ""}
+                    onChange={(e) => updateHealthForm("glucose", e.target.value === "" ? undefined : Number.parseFloat(e.target.value))}
                     required
                   />
                 </div>
@@ -683,7 +685,10 @@ export default function Page() {
                   className="mt-6 p-4 bg-green-50 dark:bg-green-900/20 rounded-lg"
                 >
                   <h3 className="font-semibold text-lg mb-2">Health Prediction Result</h3>
-                  <pre className="text-sm overflow-auto">{JSON.stringify(healthResult, null, 2)}</pre>
+                 <div className="text-sm space-y-1">
+                  <p><strong>Ten Year CHD:</strong> {healthResult.TenYearCHD}</p>
+                  <p><strong>Probability:</strong> {healthResult.probability}</p>
+                 </div>
                 </motion.div>
               )}
             </CardContent>
