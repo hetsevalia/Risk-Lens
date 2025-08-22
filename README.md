@@ -152,9 +152,17 @@ Now open: **http://localhost:3000**
 
 ---
 
+## License  
+[hetsevalia/Risk-Lens](https://github.com/hetsevalia/Risk-Lens) is licensed under the **Apache License 2.0**.  
 
+---
+
+## Note  
+This project is **not currently deployed** due to cost-cutting measures.  
+It will be deployed before the **final presentation**.  
 
   
+
 
 
 
