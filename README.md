@@ -140,9 +140,7 @@ Now open: **http://localhost:3000**
 ---
 
 ## Demo Video  
-[Watch the Project Demo](https://github.com/hetsevalia/Risk-Lens/blob/main/Working%20Recording.mp4)  
-
-(Replace with your actual YouTube / Loom / Drive video link)  
+[Watch the Project Demo](https://drive.google.com/drive/folders/1p7ny8URkfEPGD4qlg-gsSmsHB0GCGpUa)  
 
 ---
 
@@ -157,4 +155,5 @@ Now open: **http://localhost:3000**
 
 
   
+
 
