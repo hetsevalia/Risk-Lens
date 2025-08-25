@@ -1,0 +1,10 @@
+fastapi
+uvicorn
+mangum
+azure-functions
+scikit-learn
+xgboost==2.1.2
+numpy
+pandas
+joblib
+pydantic
