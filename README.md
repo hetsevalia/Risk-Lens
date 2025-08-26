@@ -1,4 +1,4 @@
-Website Link: [https://v0-risk-lens-d9v15z6j9-ssingh2534-gmailcoms-projects.vercel.app/](https://v0-risk-lens-ai-git-main-ssingh2534-gmailcoms-projects.vercel.app?_vercel_share=K2TTNDJzdGK9rBvCOLbp4n22OG4QIhUV)
+Website Link: https://v0-risk-lens-ai-git-main-ssingh2534-gmailcoms-projects.vercel.app/
 # RiskLens AI  
 AI-powered Risk Assessment & Insights Platform  
 
@@ -162,6 +162,7 @@ This project is **not currently deployed** due to cost-cutting measures.
 It will be deployed before the **final presentation**.  
 
   
+
 
 
 
